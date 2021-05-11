@@ -3,10 +3,7 @@ package com.yandubina.spring_rest.controller;
 import com.yandubina.spring_rest.entity.Employee;
 import com.yandubina.spring_rest.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,8 +24,32 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     public Employee showEmployee(@PathVariable int id) {
 
-        Employee employee= employeeService.showEmployee(id);
-        return  employee;
+        Employee employee = employeeService.showEmployee(id);
+        return employee;
 
     }
+
+
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee employee) {
+
+        employeeService.addEmployee(employee);
+        return employee;
+    }
+
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee) {
+
+        employeeService.addEmployee(employee);
+        return employee;
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public void deleteEmployee(@PathVariable int id) {
+
+        Employee employee = employeeService.showEmployee(id);
+        employeeService.deleteEmployee(employee);
+
+    }
+
 }

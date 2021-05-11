@@ -10,4 +10,8 @@ public interface EmployeeDAO {
     public List<Employee> getAllEmployees();
 
     public Employee getEmployee(int id);
+
+    public void  addEmployee(Employee employee);
+
+    void deleteEmployee(Employee employee);
 }
