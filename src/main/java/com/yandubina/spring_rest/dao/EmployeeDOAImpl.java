@@ -24,4 +24,13 @@ public class EmployeeDOAImpl implements  EmployeeDAO{
 
         return employees;
     }
+
+    @Override
+    @Transactional
+    public  Employee getEmployee(int id) {
+
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee =session.get(Employee.class,id);
+        return  employee;
+    }
 }
